@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaWind IMTA (p5.js)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- P5.js canvas is injected automatically by p5.js into the body -->
+
+    <!-- HUD -->
+    <div id="hud">
+        <div class="htitle"><img src="logo-pecheur.png" alt="" class="h-logo">BIOSPIRA</div>
+
+    </div>
+    <div class="pdots" id="pdots">
+        <div class="pd" id="pd0"></div>
+        <div class="pd" id="pd1"></div>
+        <div class="pd" id="pd2"></div>
+        <div class="pd" id="pd3"></div>
+    </div>
+    <div id="ibar">🌊 Bienvenue dans votre éolienne IMTA</div>
+
+    <!-- Selection panel -->
+    <div id="panel">
+        <button id="serialBtn" class="sbtn-mini">🔌 Arduino</button>
+        <div class="ph">
+            <div class="ph-step" id="pStep">ÉTAPE 1/4</div>
+            <div class="ph-title" id="pTitle">Choisissez une espèce</div>
+            <hr class="ph-hr">
+            <div class="ph-hint" id="pHint"></div>
+        </div>
+        <div id="choices"></div>
+        <button class="cbtn" id="cbtn" onclick="confirmChoice()">✅ VALIDER</button>
+    </div>
+
+    <!-- Placement tray -->
+    <div id="tray"></div>
+    <div id="toast"></div>
+
+    <!-- INTRO -->
+    <div id="intro" style="display: flex;">
+        <div class="ilogo"><img src="logo-pecheur.png" alt=""></div>
+        <div class="ititle">BIOSPIRA</div>
+        <div class="isub">Aquaculture Multitrophique Intégrée</div>
+        <div class="idesc">
+            Plongez sous une <strong>éolienne offshore</strong> et construisez un écosystème IMTA !<br><br>
+            🌿 <strong>Gauche :</strong> Algues · Concombres<br>
+            🐟 <strong>Droite :</strong> Poissons · Moules · Concombres<br><br>
+            Sélectionnez les bonnes espèces, puis placez-les dans les bons bassins !
+        </div>
+        <button class="sbtn" onclick="initGame()">🚀 PLONGER !</button>
+        <button id="serialBtn" class="sbtn-mini sbtn-mini-intro">🔌 Arduino</button>
+
+    </div>
+
+    <!-- WIN -->
+    <div id="win">
+        <div style="font-size:clamp(3rem,8vw,4.5rem);animation:ifl 2s ease-in-out infinite">🏆</div>
+        <div class="wh1">ÉCOSYSTÈME PARFAIT !</div>
+        <div class="imta-good">Votre IMTA est fonctionnel — la chaîne alimentaire est équilibrée !</div>
+        <div class="wchain" id="wchain"></div>
+        <div class="wdesc">
+            <h3>🔬 LA SCIENCE DE VOTRE CHAÎNE</h3>
+            🐟 <strong style="color:var(--cyan)">Bar</strong> — déjections riches en azote<br>
+            🌿 <strong style="color:var(--cyan)">Laminaires</strong> — absorbent les nutriments<br>
+            🦪 <strong style="color:var(--cyan)">Moules</strong> — filtrent l'eau en suspension<br>
+            🥒 <strong style="color:var(--cyan)">Concombres</strong> — recyclent les sédiments organiques
+        </div>
+        <div class="wbtns">
+            <button class="bplay" onclick="restartGame()">🔄 REJOUER</button>
+        </div>
+    </div>
+
+    <!-- Bouton flottant Rejouer (visible apres VOIR) -->
+    <button id="floatReplay" onclick="restartGame()">🔄 REJOUER</button>
+
+    <script src="p5.min.js"></script>
+    <script src="data.js"></script>
+    <script src="draw.js"></script>
+    <script src="led.js"></script>
+    <script src="p5.js"></script>
+    <script src="arduino.js"></script>
+    <script src="sketch.js"></script>
+</body>
+
+</html>
