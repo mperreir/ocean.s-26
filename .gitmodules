@@ -2,3 +2,7 @@
 	path = Centrotus
 	url = git@github.com:zoegoujon/Centrotus.git
 	branch = master
+[submodule "Iona-Factory"]
+	path = Iona-Factory
+	url = git@github.com:PachaBloom/Iona-Factory.git
+	branch = main
